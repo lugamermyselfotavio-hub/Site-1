@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Resume Template</title>
+    <style>
+      :root {
+        --bg: #f3f6fb;
+        --card: #ffffff;
+        --primary: #0f172a;
+        --accent: #2563eb;
+        --accent-soft: #dbeafe;
+        --text: #1f2937;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --success: #0f766e;
+        --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #eef4ff 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: var(--card);
+        box-shadow: var(--shadow);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+
+      .topbar {
+        background: linear-gradient(135deg, var(--primary), #1e3a8a);
+        color: white;
+        padding: 36px 48px 28px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex: 1;
+      }
+
+      .avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.7rem;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.04em;
+      }
+
+      .role {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.05rem;
+        letter-spacing: 0.03em;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .contact span {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 2.1fr 1fr;
+      }
+
+      .main,
+      .sidebar {
+        padding: 36px 48px;
+      }
+
+      .main {
+        border-right: 1px solid var(--line);
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        margin: 0 0 18px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .job {
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .job:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 8px;
+      }
+
+      .job-title {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .company {
+        margin: 4px 0 0;
+        font-size: 0.98rem;
+        color: var(--muted);
+      }
+
+      .date {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .sidebar {
+        background: #f8fafc;
+      }
+
+      .sidebar .section {
+        margin-bottom: 26px;
+      }
+
+      .pill-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 8px 12px;
+        background: var(--accent-soft);
+        color: #1d4ed8;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .mini-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mini-list li {
+        margin-bottom: 12px;
+        line-height: 1.5;
+        color: var(--text);
+      }
+
+      .mini-list strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--primary);
+      }
+
+      .education-item {
+        margin-bottom: 18px;
+      }
+
+      .education-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .link {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      @media (max-width: 840px) {
+        .page {
+          margin: 20px;
+          border-radius: 16px;
+        }
+
+        .topbar,
+        .main,
+        .sidebar {
+          padding: 24px 20px;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .main {
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .header {
+          align-items: flex-start;
+        }
+
+        .contact {
+          justify-content: flex-start;
+        }
+
+        .job-head {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="header">
+          <div class="profile">
+            <div><img src="aura.png" alt="Luís Otávio" width="120" height="80"></div>
+            <div>
+              <h1>Luís Otávio</h1>
+              <div class="role">Luísão </div>
+            </div>
+          </div>
+
+          <div class="contact">
+            <span>lugamermyselfotavio@gmail.com</span>
+            <span>Não sei meu número</span>
+            <span>São José dos Campos, Brasil</span>
+            <span>no tengo linkedin</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <main class="main">
+          <section class="section">
+            <h2 class="section-title">Profile</h2>
+            <p class="summary">
+              Eu sou o Luís.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Experience</h2>
+
+            <article class="job">
+              <div class="job-head">
+                <div>
+                  <h3 class="job-title">Farmador de aura</h3>
+                  <p class="company">Empresa Absolute cinema</p>
+                </div>
+                <div class="date">2022 — Até hoje</div>
+              </div>
+              <ul>
+                <li>Farmei muita aura.</li>
+                <li>Farmei mais aura.</li>
+                <li>Farmei ainda mais aura.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-head">
+                <div>
+                  <h3 class="job-title">Eu farmava aura</h3>
+                  <p class="company">Empresa Farmadora</p>
+                </div>
+                <div class="date">2019 — 2022</div>
+              </div>
+              <ul>
+                <li>Aura.</li>
+                <li>Aura + Ego.</li>
+                <li>67.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-head">
+                <div>
+                  <h3 class="job-title">Não trabalho</h3>
+                  <p class="company">não trabalho já falei</p>
+                </div>
+                <div class="date">2017 — 2019</div>
+              </div>
+              <ul>
+                <li>Nada.</li>
+                <li>Não.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Projetos</h2>
+
+            <article class="job">
+              <div class="job-head">
+                <div>
+                  <h3 class="job-title">Sim.</h3>
+                  <p class="company">Absolute cinema</p>
+                </div>
+                <div class="date">2024</div>
+              </div>
+              <ul>
+                <li>Eu sou ELE.</li>
+                <li>Deu certo.</li>
+                <li>Mudei essa bosta.</li>
+              </ul>
+            </article>
+          </section>
+        </main>
+
+        <aside class="sidebar">
+          <section class="section">
+            <h2 class="section-title">Abilidudes</h2>
+            <div class="pill-group">
+              <span class="pill">Aura</span>
+              <span class="pill">Farmar aura</span>
+              <span class="pill">Sim</span>
+              <span class="pill">Não</span>
+              <span class="pill">Certo</span>
+              <span class="pill">Juaum venancioau</span>
+              <span class="pill">Google Shits</span>
+              <span class="pill">Oh Hell No</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Educação</h2>
+            <div class="education-item">
+              <strong>Sou Mestre</strong>
+              Universidade aura<br />
+              estudei muito.
+            </div>
+            <div class="education-item">
+              <strong>Aura</strong>
+              cursei aura + ego<br />
+              Organizei minha aura.
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">oi2>
+            <ul class="mini-list">
+              <li><strong>English</strong> sei la
+              <li><strong>Spanish</strong> sim/li>
+              <li><strong>French</strong> nãoli>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">hola senores</h2>
+            <ul class="mini-list">
+              <li><a class="link" href="#">hell no>
+              <li><a class="link" href="#">hell no>
+              <li><a class="link" href="#">hell no>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
